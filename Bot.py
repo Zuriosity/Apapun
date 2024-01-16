@@ -42,4 +42,4 @@ async def roll(ctx, dice="1d9"):
 
     
 
-bot.run("MTE5NDI2NTA4ODc4NjQ0NDI5MA.Ge4KUb.SiAF07I2-wKw-iZdgUiwS9i0pOQPa9_UYAWOKA")
+bot.run("")
