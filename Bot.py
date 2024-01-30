@@ -1,7 +1,7 @@
 import discord
-import random
+import random, os 
 from discord.ext import commands
-from project import gen_pass
+from project import gen_pass,sampah_organik,sampah_anorganik
 from project import flip_coin
 intents = discord.Intents.default()
 intents.message_content = True
@@ -40,6 +40,36 @@ async def roll(ctx, dice="1d9"):
     result = ', '.join(str(random.randint(1, limit)) for r in range(rolls))
     await ctx.send(result)
 
-    
+@bot.command()
+async def meme(ctx):
+    gambar = random.choice(os.listdir('images'))
+    with open(f'images/{gambar}','rb')as f:
+        pic = discord.File(f)
 
-bot.run("")
+    await ctx.send(file=pic)
+
+@bot.command()
+async def anime(ctx):
+    gambar = random.choice(os.listdir('images1'))
+    with open(f'images1/{gambar}','rb')as f:
+        pic = discord.File(f)
+
+    await ctx.send(file=pic)
+
+@bot.command()
+async def organik(ctx):
+    sampah = ''
+    for i in sampah_organik:
+        i = i+'\n'
+        sampah += i
+    await ctx.send('berikut sampah organik')
+    await ctx.send(sampah)
+
+@bot.command()
+async def anorganik(ctx):
+    sampah = ''
+    for i in sampah_anorganik:
+        i = i+'\n'
+        sampah1 += i
+    await ctx.send('berikut sampah organik')
+    await ctx.send(sampah)
